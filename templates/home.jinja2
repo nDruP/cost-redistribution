@@ -1,0 +1,21 @@
+{% extends 'base.jinja2' %}
+
+{% block subtitle %}Home{% endblock subtitle %}
+
+{% block content %}
+
+<p>Total Bill</p><input type="number" id="total_bill" />
+
+<p>People+Incomes</p>
+
+<form method="POST">
+
+<form method="POST">
+      {% for _ in range(0, numPeeps) %}
+      <label for="names">Name:</label>
+      	 <input type="text" id="names" value="Chungus" />
+      <label for="incomes">Income:</label>
+	 <input type="number" step="0.01" min=0 id="incomes" value="12" />
+      {% endfor %}
+</form>
+{% endblock content %}

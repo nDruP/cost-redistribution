@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<style>
+			table, th, td {
+			border: 1px solid black;
+			}
+		</style>
+		<title>Socialist Bill Split</title>
+	</head>
+	<body>
+		<h1>Socialism Calculator</h1>
+		<nav>
+			<a id="home" href="{{ url_for('home') }}">Home</a> |
+			<a id="motivate" href="{{ url_for('why_this') }}">Why?</a> |
+			<a id="contact" href="{{ url_for('who_this') }}">Who?</a>
+		</nav>
+		<h2>{% block subtitle %} {% endblock subtitle %}</h2>
+		{% block content %} {% endblock content %}
+	</body>
+</html>

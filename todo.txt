@@ -1,0 +1,5 @@
+1. Templates
+   a. Home
+   b. contact
+2. main.py
+3. launch on heroku?

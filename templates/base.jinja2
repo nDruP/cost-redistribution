@@ -1,20 +1,32 @@
 <html>
-	<head>
-		<style>
-			table, th, td {
-			border: 1px solid black;
-			}
-		</style>
-		<title>Socialist Bill Split</title>
-	</head>
-	<body>
-		<h1>Socialism Calculator</h1>
-		<nav>
-			<a id="home" href="{{ url_for('home') }}">Home</a> |
-			<a id="motivate" href="{{ url_for('why_this') }}">Why?</a> |
-			<a id="contact" href="{{ url_for('who_this') }}">Who?</a>
-		</nav>
-		<h2>{% block subtitle %} {% endblock subtitle %}</h2>
-		{% block content %} {% endblock content %}
-	</body>
+  <head>
+    <style>
+      table, th, td {
+      border: 1px solid white;
+      color: white;
+      }
+      .content * {
+      padding: 10px 25px;
+      margin: 5px 10px;
+      }
+    </style>
+    <title>Socialist Bill Split</title>
+  </head>
+  <body bgcolor="black">
+    <font face="courier" color="white" size="2">
+    <center>
+    <h1>Socialism Calculator</h1>
+    <nav>
+	<a id="home" href="{{ url_for('home') }}">Home</a> |
+	<a id="about" href="{{ url_for('about') }}">Why?</a> |
+	<!-- <a id="contact" >Who?</a> -->
+    </nav>
+    <h2>{% block subtitle %} {% endblock subtitle %}</h2>
+    <!-- </center> -->
+    <div id=content>
+      {% block content %}
+      {% endblock content %}
+    </div>
+    </center>
+  </body>
 </html>

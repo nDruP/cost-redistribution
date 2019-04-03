@@ -3,19 +3,52 @@
 {% block subtitle %}Home{% endblock subtitle %}
 
 {% block content %}
+   <form method="POST">
+      <label for="total_bill">Total Bill: </label>
+      <input name="total_bill" type="number" step="0.01" min="0.01" />
+      <br>
 
-<p>Total Bill</p><input type="number" id="total_bill" />
+      <br>
+      <table style="width:70%;">
+       <tr>
+	<th>Name</th>
+	<th>Income></th>
+	</tr>
+	{% for _ in range(n_peeps) %}
+	<tr>
+	<td><input name="names" type="text" value="Chungus" /></td>
+      	<td><input name="incomes" type="number" step="0.01" min="0.01" value="12" /></td>
+	</tr>
+	{% endfor %}
+	</table>
+	
+      <br>
+      <br>
+      
+      <input type="submit" id="IncomeSubmit" value="Submit">&emsp;
+      <input name="addPeeps" type="submit" value="Add Person">  
+      <input name="remPeeps" type="submit" value="Remove Person">
+    </form>
 
-<p>People+Incomes</p>
+{% if total != -1 %}
+<table>
+       <tr>
+	<th>Name</th>
+	<th>Income</th>
+	<th>Even Split</th>
+	<th>EvenSplit % of Income</th>
+	<th>Adjusted Split</th>
+	<th>AdjSplit % of Income</th>
+	</tr>
+{% for x in split_info %}
+<tr>
+   {% for i in range(6) %}
+   <td>{{ x[i] }}</td>
+   {% endfor %}
+</tr>
+{% endfor %}
 
-<form method="POST">
+</table>
+{% endif %}
 
-<form method="POST">
-      {% for _ in range(0, numPeeps) %}
-      <label for="names">Name:</label>
-      	 <input type="text" id="names" value="Chungus" />
-      <label for="incomes">Income:</label>
-	 <input type="number" step="0.01" min=0 id="incomes" value="12" />
-      {% endfor %}
-</form>
 {% endblock content %}

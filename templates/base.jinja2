@@ -1,32 +1,30 @@
 <html>
-  <head>
-    <style>
-      table, th, td {
-      border: 1px solid white;
-      color: white;
-      }
-      .content * {
-      padding: 10px 25px;
-      margin: 5px 10px;
-      }
-    </style>
-    <title>Socialist Bill Split</title>
-  </head>
-  <body bgcolor="black">
-    <font face="courier" color="white" size="2">
-    <center>
-    <h1>Socialism Bill Split</h1>
-    <nav>
-	<a id="home" href="{{ url_for('home') }}">Home</a> |
-	<a id="about" href="{{ url_for('about') }}">Why?</a>
-	<!-- <a id="contact" >Who?</a> -->
-    </nav>
-    <h2>{% block subtitle %} {% endblock subtitle %}</h2>
-    <!-- </center> -->
-    <div id=content>
-      {% block content %}
-      {% endblock content %}
-    </div>
-    </center>
-  </body>
+	<head>
+		<style>
+			table, th, td {
+				border: 1px solid white;
+				color: white;
+			}
+			.content * {
+				width: 60%;
+			}
+		</style>
+		<title>Socialist Bill Split</title>
+	</head>
+	<body bgcolor="black">
+		<font face="courier" color="white" size="2">
+		<center>
+			<h1>Socialism Bill Split</h1>
+			<nav>
+				<a id="home" href="{{ url_for('home') }}">Home</a> |
+				<a id="about" href="{{ url_for('about') }}">Why?</a>
+				<!-- <a id="contact" >Who?</a> -->
+			</nav>
+			<h2>{% block subtitle %} {% endblock subtitle %}</h2>
+			<div id=content>
+				{% block content %}
+				{% endblock content %}
+			</div>
+		</center>
+	</body>
 </html>

@@ -15,21 +15,12 @@ def home():
         incomes = request.form.getlist('incomes')
         incomes = [float(k) for k in incomes]
         names = request.form.getlist('names')
-        add_p = request.form.get('addPeeps')
-        rem_p = request.form.get('remPeeps')
-        print(total_bill)
-        print(incomes)
-        print(names)
-        print(add_p)
-        print(rem_p)
         return render_template('home.jinja2',
                                total=total_bill,
-                               split_info = all_info(total_bill, names, incomes),
-                               n_peeps = num_peeps)
+                               split_info = all_info(total_bill, names, incomes))
     return render_template('home.jinja2',
                            total=-1,
-                           split_info=[],
-                           n_peeps=num_peeps)
+                           split_info=[])
 
 @app.route('/about', methods=['GET'])
 def about():

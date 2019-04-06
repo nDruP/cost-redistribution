@@ -1,6 +1,6 @@
 {% extends 'base.jinja2' %}
 
-{% block subtitle %}Home{% endblock subtitle %}
+{% block subtitle %}Where the Magic (basic math) Happens{% endblock subtitle %}
 
 {% block content %}
    <form method="POST">
@@ -10,8 +10,8 @@
       <br>
       <br>
       
-      <input type="button" id="more_peeps" onclick="add_fields();" value="More People"/> ?emsp; <input type="button" id="less_peeps" onclick="rem_fields();" value="Less Peopls"/>
-      <table id="input_table" style="width:60%;">
+      <input type="button" id="more_peeps" onclick="add_fields();" value="More People"/> &emsp; <input type="button" id="less_peeps" onclick="rem_fields();" value="Less People"/>
+      <table id="input_table" style="width:42%;">
        <tr>
 	<th>Name</th>
 	<th>Income</th>
@@ -65,10 +65,10 @@ function rem_fields() {
 	 var table = document.getElementById('input_table');
 	 if(table.rows.length > 3){
 	 	table.deleteRow(1);
-}	 	
+	}	 	
 }
 
-}
+
 </script>
 
 {% endblock content %}

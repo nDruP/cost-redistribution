@@ -1,6 +1,1 @@
-1. Templates
-   a. Home (kinda) [Apr/2]
-   b. About (Done? Edit/Proofread)
-   c. Contact?(Might make a separate site)
-2. main.py (Gotta find a way to handle num_peeps)[Apr/2]
-3. launch on heroku?
+Host/Launch it somewhere...

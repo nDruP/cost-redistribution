@@ -18,9 +18,7 @@ def home():
         return render_template('home.jinja2',
                                total=total_bill,
                                split_info = all_info(total_bill, names, incomes))
-    return render_template('home.jinja2',
-                           total=-1,
-                           split_info=[])
+    return render_template('empty_home.jinja2')
 
 @app.route('/about', methods=['GET'])
 def about():

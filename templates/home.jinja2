@@ -5,71 +5,66 @@
 {% block content %}
 	<form method="POST">
 		<label for="total_bill">Total Bill: </label>
-		<input name="total_bill" type="number" step="0.01" min="0.01" required />
-      
+		<input name="total_bill" type="number" step="0.01" min="0.01" value={{ total }} required />
+  
 		<br>
 		<br>
-      
+  
 		<input type="button" id="more_peeps" onclick="add_fields();" value="More People"/> &emsp; 
 		<input type="button" id="less_peeps" onclick="rem_fields();" value="Less People"/>
-
-		<table id="input_table" style="width:42%;">
+		<table id="input_table">
 			<tr>
 				<th>Name</th>
 				<th>Income</th>
+				<th>Even Split</th>
+				<th>EvenSplit % of Income</th>
+				<th>Adjusted Split</th>
+				<th>AdjSplit % of Income</th>
 			</tr>
-			{% for _ in range(2) %}
+			{% for x in split_info %}
 			<tr>
-				<td><input name="names" type="text" value="example" required/></td>
-				<td><input name="incomes" type="number" step="0.01" min="0.01" required/></td>
+				<td><input name="names" type="text" value="{{ x[0] }}" required/></td>
+				<td><input name="incomes" type="number" step="0.01" min="0.01" value="{{ x[1] }}"required/></td>
+				{% for i in range(2,6) %}
+					{% if i in [2,4] %} <td>${{ x[i] }}</td>
+					{% else %} <td>{{ x[i] }}%</td>
+					{% endif %}
+				{% endfor %}
+				<td><input type="button" onclick="deleteRow(this)" value="X"></td>
 			</tr>
 			{% endfor %}
 		</table>
-	
 		<br>
 		<br>
       
 		<input type="submit" id="IncomeSubmit" value="Submit">
 	</form>
 
-	{% if total != -1 %}
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Income</th>
-			<th>Even Split</th>
-			<th>EvenSplit % of Income</th>
-			<th>Adjusted Split</th>
-			<th>AdjSplit % of Income</th>
-		</tr>
-		{% for x in split_info %}
-		<tr>
-			{% for i in range(6) %}
-				{%if i in [1,2,4] %} <td>${{ x[i] }}</td>
-				{% elif i in [3,5] %} <td>{{ x[i] }}%</td>
-				{% else %} <td>{{ x[i] }}</td>
-				{% endif %}
-			{% endfor %}
-		</tr>
-		{% endfor %}
-	</table>
-	{% endif %}
-
 <script>
 	function add_fields() {
 		var table = document.getElementById('input_table');
-		var row = table.insertRow(1);
+		var row = table.insertRow(-1);
 		var name = row.insertCell(0);
 		var income = row.insertCell(1);
+		var rem_row = row.insertCell(2);
 		name.innerHTML = '<input name="names" type="text" value="Chungus" required />';
 		income.innerHTML = '<input name="incomes" type="number" step="0.01" min="0.01" required />';
+		rem_row.innerHTML='<input type="button"  onclick="deleteRow(this)" value="X">';
 	}
 
 	function rem_fields() {
 		var table = document.getElementById('input_table');
 		if(table.rows.length > 3){
-			table.deleteRow(1);
-		}	 	
+			table.deleteRow(-1);
+		}
+	}
+	
+	function deleteRow(r) {
+		var table = document.getElementById('input_table');
+		var i = r.parentNode.parentNode.rowIndex;
+		if(table.rows.length > 3){
+			table.deleteRow(i);
+		}
 	}
 
 </script>
